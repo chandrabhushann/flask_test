@@ -6,6 +6,7 @@ app = Flask(__name__)
 def index():
     return "hellp world"
 
+# added new function
 @app.route('/chandra')
 def chandra():
     return "hellp chandra"
