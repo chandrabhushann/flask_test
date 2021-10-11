@@ -1,15 +1,14 @@
 from flask import Flask
+import logging as logger
+logger.basicConfig(level="DEBUG")
 
-app = Flask(__name__)
 
-@app.route('/')
-def index():
-    return "hellp world"
+flaskAppInstance = Flask(__name__)
 
-# added new function
-@app.route('/chandra')
-def chandra():
-    return "hellp chandra"
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+
+    logger.debug("Starting Flask Server")
+    from api import *
+    flaskAppInstance.run(host="0.0.0.0", port=5000,debug=True, use_reloader=True)
